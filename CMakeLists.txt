@@ -17,8 +17,13 @@ qt_add_qml_module(appqt-study
     VERSION 1.0
     QML_FILES
         Main.qml
-        QML_FILES components/QuantumCircuit.qml
-        QML_FILES components/ZoomableArea.qml
+)
+
+qt_add_qml_module(examples
+    URI examples
+    VERSION 1.0
+    QML_FILES
+        examples/ImplicitWidth.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -33,7 +38,7 @@ set_target_properties(appqt-study PROPERTIES
 )
 
 target_link_libraries(appqt-study
-    PRIVATE Qt6::Quick
+    PRIVATE Qt6::Quick examples
 )
 
 include(GNUInstallDirs)
